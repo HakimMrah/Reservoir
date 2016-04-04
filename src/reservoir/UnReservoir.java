@@ -12,20 +12,21 @@ package reservoir;
 public class UnReservoir {
     private int litreContenue;
     private int contenuMax;
-    private boolean vide = true;
-    private boolean plein = false;
+    private boolean vide;
+    private boolean plein;
     
     public UnReservoir(int p_litreContenue){
         litreContenue = p_litreContenue;
-        this.testPleinVide();
         contenuMax = 100;
+        this.testPleinVide();
+        
     }
     
     private void testPleinVide(){
         if(litreContenue > 0){
             vide = false;
         }
-        else if(litreContenue == 100){
+        else if(litreContenue == contenuMax){
             vide = false;
             plein = true;
         }
