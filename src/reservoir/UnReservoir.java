@@ -21,4 +21,8 @@ public class UnReservoir {
     public int getNiveau(){
         return litreContenue;
     }
+    
+    public void viderReservoir(){
+        litreContenue = 0;
+    }
 }
