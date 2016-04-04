@@ -12,9 +12,14 @@ package reservoir;
 public class UnReservoir {
     private int litreContenue;
     private int contenuMax;
+    private boolean vide = false;
+    private boolean plein = false;
     
     public UnReservoir(int p_litreContenue){
         litreContenue = p_litreContenue;
+        if(p_litreContenue > 0){
+            vide = true;
+        }
         contenuMax = 100;
     }
     
@@ -54,10 +59,12 @@ public class UnReservoir {
     }
      public void remplir(UnReservoir p_reservoirRemplir){
          int reservoirVider = this.litreContenue;
-        int reservoirRemplir = 100 - p_reservoirRemplir.getNiveau();
-        int difference = reservoirVider - reservoirRemplir;
-        reservoirRemplir += (reservoirVider -difference);
-        reservoirVider -= (reservoirVider -difference);
+        int reservoirRemplir = p_reservoirRemplir.getNiveau();
+        if(reservoirVider >= (100-reservoirRemplir)){
+            int difference = reservoirVider - (100 - reservoirRemplir);
+            reservoirRemplir += (reservoirVider -difference);
+            reservoirVider -= (reservoirVider -difference);
+        }
      }
     
     
