@@ -17,7 +17,7 @@ public class UnReservoir {
     
     public UnReservoir(int p_litreContenue){
         litreContenue = p_litreContenue;
-        testPleinVide();
+        this.testPleinVide();
         contenuMax = 100;
     }
     
@@ -70,7 +70,8 @@ public class UnReservoir {
         if(((100 -reservoirRemplir) > reservoirVider)){
             p_reservoirRemplir.setNiveau(reservoirVider);
             litreContenue = 0;
-            testPleinVide();
+            this.testPleinVide();
+            p_reservoirRemplir.testPleinVide();
         }
     }
      public void remplir(UnReservoir p_reservoirRemplir){
@@ -80,7 +81,8 @@ public class UnReservoir {
             int difference = reservoirVider - (100 - reservoirRemplir);
             reservoirRemplir += (reservoirVider -difference);
             reservoirVider -= (reservoirVider -difference);
-            testPleinVide();
+            this.testPleinVide();
+            p_reservoirRemplir.testPleinVide();
         }
      }
     
@@ -91,7 +93,8 @@ public class UnReservoir {
             this.litreContenue--;
             //p_reservoirRemplir.setNiveau(p_reservoirRemplir.getNiveau()+1);
             p_reservoirRemplir.litreContenue++;
-            testPleinVide();
+            this.testPleinVide();
+            p_reservoirRemplir.testPleinVide();
         }
      }
     
