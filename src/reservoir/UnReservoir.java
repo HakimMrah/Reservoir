@@ -18,12 +18,20 @@ public class UnReservoir {
         contenuMax = 100;
     }
     
+    public int getCapacite(){
+        return contenuMax;
+    }
+    
     public int getNiveau(){
         return litreContenue;
     }
     
     public void setNiveau(int litre){
         litreContenue += litre;
+    }
+    
+    public int getEspaceLibre(){
+        return 100-litreContenue;
     }
     
     /*public int viderDans(int litre){
@@ -44,7 +52,13 @@ public class UnReservoir {
             litreContenue = 0;
         }
     }
-    
+     public void remplir(UnReservoir p_reservoirRemplir){
+         int reservoirVider = this.litreContenue;
+        int reservoirRemplir = 100 - p_reservoirRemplir.getNiveau();
+        int difference = reservoirVider - reservoirRemplir;
+        reservoirRemplir += (reservoirVider -difference);
+        reservoirVider -= (reservoirVider -difference);
+     }
     
     
 }
