@@ -67,7 +67,7 @@ public class UnReservoir {
     public void viderDans(UnReservoir p_reservoirRemplir){
         int reservoirVider = this.litreContenue;
         int reservoirRemplir = p_reservoirRemplir.getNiveau();
-        if(((100 -reservoirRemplir) > reservoirVider)){
+        if(((100 -reservoirRemplir) >= reservoirVider)){
             p_reservoirRemplir.setNiveau(reservoirVider);
             litreContenue = 0;
             this.testPleinVide();
@@ -79,8 +79,8 @@ public class UnReservoir {
         int reservoirRemplir = p_reservoirRemplir.getNiveau();
         if(/*reservoirVider >= (100-reservoirRemplir) && */(reservoirRemplir + reservoirVider) >= 100){
             int difference = reservoirVider - (100 - reservoirRemplir);
-            reservoirRemplir += (reservoirVider -difference);
-            reservoirVider -= (reservoirVider -difference);
+            p_reservoirRemplir.setNiveau(reservoirVider -difference);
+            this.litreContenue -= (reservoirVider -difference);
             this.testPleinVide();
             p_reservoirRemplir.testPleinVide();
         }
