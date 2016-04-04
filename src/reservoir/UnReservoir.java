@@ -22,7 +22,29 @@ public class UnReservoir {
         return litreContenue;
     }
     
-    public void viderReservoir(){
-        litreContenue = 0;
+    public void setNiveau(int litre){
+        litreContenue += litre;
     }
+    
+    /*public int viderDans(int litre){
+        int difference = 0;
+        litreContenue += litre;
+        if(litreContenue > contenuMax){
+            difference = litreContenue - 100;
+            litreContenue -= difference;
+        }
+        return difference;
+    }*/
+    
+    public void viderDans(UnReservoir p_reservoirRemplir){
+        int reservoirVider = this.litreContenue;
+        int reservoirRemplir = p_reservoirRemplir.getNiveau();
+        if(((100 -reservoirRemplir) > reservoirVider)){
+            p_reservoirRemplir.setNiveau(reservoirVider);
+            litreContenue = 0;
+        }
+    }
+    
+    
+    
 }
